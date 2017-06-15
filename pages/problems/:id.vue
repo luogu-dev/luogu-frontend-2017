@@ -5,7 +5,7 @@
     </h1>
     <div uk-grid>
       <div class="uk-width-2-3">
-        <div v-if="content.background" class="uk-card uk-card-default uk-card-body">
+        <div v-if="content.background" class="uk-card uk-card-default uk-card-body uk-margin">
           <h3 class="uk-card-title">背景</h3>
           <div v-html="content.background"></div>
         </div>
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="uk-width-1-3">
-        <div class="uk-card uk-card-default uk-card-body" uk-sticky="offset: 30">
+        <div class="uk-card uk-card-default uk-card-body">
           <div uk-grid>
             <div class="uk-width-1-2">
               <dl class="uk-description-list">
