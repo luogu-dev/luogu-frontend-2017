@@ -33,7 +33,7 @@
       </div>
       <ul class="uk-navbar-nav">
         <app-dropdown :apps="apps" />
-        <li>
+        <li v-if="currentUser">
           <a href="#">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: bell"></span>通知</a>
         </li>
@@ -49,6 +49,7 @@
 <script>
 import AppDropdown from './app-dropdown'
 import UserDropdown from './user-dropdown'
+import LoginDropdown from './login-dropdown'
 
 export default {
   data: () => ({
@@ -59,10 +60,10 @@ export default {
       { icon: 'users', title: '团队' },
       { icon: 'image', title: '图床' }
     ],
-    currentUser: {
+    currentUser: null /* {
       username: 'laosb'
-    }
+    } */
   }),
-  components: { AppDropdown, UserDropdown }
+  components: { AppDropdown, UserDropdown, LoginDropdown }
 }
 </script>
