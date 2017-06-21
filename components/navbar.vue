@@ -37,40 +37,8 @@
           <a href="#">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: bell"></span>通知</a>
         </li>
-        <li>
-          <a href="#">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>
-            laosb
-          </a>
-          <div class="uk-navbar-dropdown">
-            <ul class="uk-nav uk-navbar-dropdown-nav">
-              <li class="uk-nav-header">个人</li>
-              <li>
-                <a href="#">个人页</a>
-              </li>
-              <li>
-                <a href="#">私信</a>
-              </li>
-              <li class="uk-nav-divider"></li>
-              <li class="uk-nav-header">团队</li>
-              <li>
-                <a href="#">这是一个普通的团队</a>
-              </li>
-              <li class="uk-nav-divider"></li>
-              <li class="uk-nav-header">比赛</li>
-              <li>
-                <a href="#">这是一个普通的比赛</a>
-              </li>
-              <li class="uk-nav-divider"></li>
-              <li>
-                <a href="#">
-                  <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-out"></span>
-                  退出登录
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
+        <user-dropdown v-if="currentUser" :user="currentUser"/>
+        <login-dropdown v-else />
       </ul>
     </div>
   </nav>
@@ -80,6 +48,7 @@
 </style>
 <script>
 import AppDropdown from './app-dropdown'
+import UserDropdown from './user-dropdown'
 
 export default {
   data: () => ({
@@ -89,8 +58,11 @@ export default {
       { icon: 'table', title: '评测记录' },
       { icon: 'users', title: '团队' },
       { icon: 'image', title: '图床' }
-    ]
+    ],
+    currentUser: {
+      username: 'laosb'
+    }
   }),
-  components: { AppDropdown }
+  components: { AppDropdown, UserDropdown }
 }
 </script>
