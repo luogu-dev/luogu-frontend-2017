@@ -33,11 +33,12 @@
       </div>
       <ul class="uk-navbar-nav">
         <app-dropdown :apps="apps" />
-        <li v-if="currentUser">
+        <li>
           <a href="#">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: bell"></span>通知</a>
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: bell"></span>通知
+          </a>
         </li>
-        <user-dropdown v-if="currentUser" :user="currentUser"/>
+        <user-dropdown v-if="currentUser" />
         <login-dropdown v-else />
       </ul>
     </div>
@@ -64,6 +65,7 @@ export default {
       username: 'laosb'
     } */
   }),
+  mounted() { console.log('navbar mounted') },
   components: { AppDropdown, UserDropdown, LoginDropdown }
 }
 </script>

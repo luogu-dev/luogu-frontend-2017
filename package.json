@@ -5,20 +5,27 @@
   "author": "laosb",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "cookies": "^0.7.0",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
     "jquery": "^3.2.1",
     "nuxt": "latest",
-    "uikit": "^3.0.0-beta.25"
+    "uikit": "^3.0.0-beta.25",
+    "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
     "dev": "HOST=0.0.0.0 PORT=3333 nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "cross-env NODE_ENV=production nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "cross-env": "^5.0.1",
     "eslint": "^3.15.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-loader": "^1.6.1",

@@ -11,7 +11,14 @@
 import NavBar from '~components/navbar'
 
 export default {
-  components: { NavBar }
+  components: { NavBar },
+  created() {
+    //We set this on nuxtServerInit. In this way we get clientId from server.
+    if (this.$store._clientId) {
+      const bc = require('browser-cookies')
+      bc.set('__client_id', this.$store._clientId, { domain: 'luogu.org' })
+    }
+  }
 }
 </script>
 
