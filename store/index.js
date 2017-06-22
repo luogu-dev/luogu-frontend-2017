@@ -24,15 +24,15 @@ const store = () => new Vuex.Store({
     async nuxtServerInit ({ commit }, { req, res }) {
       const Cookies = require('cookies')
       const cookies = new Cookies(req, res)
-      const clientId = cookies.get('__client_id')
+      let clientId = cookies.get('__client_id')
       const axios = require('axios')
       if (clientId) {
-        commit('SET_CLIENTID', clientId)
-        axios.defaults.headers.common['Cookie'] = `__client_id=${clientId}`
-      } else {
         // Send a request to backend to get a clientId.
         const { data } = axios.get('www.luogu.org/api/authenticate/getClientId')
+        clientId = data.data
       }
+      commit('SET_CLIENTID', clientId)
+      axios.defaults.headers.common['Cookie'] = `__client_id=${clientId}`
     }
   }
 
