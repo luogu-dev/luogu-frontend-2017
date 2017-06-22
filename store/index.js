@@ -10,7 +10,8 @@ const store = () => new Vuex.Store({
 
   state: {
     _currentUser: null,
-    _clientId: null
+    _clientId: null,
+    _apiBaseURL: 'https://api.luogu.org'
   },
 
   mutations: {
@@ -28,14 +29,13 @@ const store = () => new Vuex.Store({
       const axios = require('axios')
       if (clientId) {
         // Send a request to backend to get a clientId.
-        const { data } = axios.get('www.luogu.org/api/authenticate/getClientId')
+        const { data } = await axios.get('www.luogu.org/api/authenticate/getClientId')
         clientId = data.data
       }
       commit('SET_CLIENTID', clientId)
       axios.defaults.headers.common['Cookie'] = `__client_id=${clientId}`
     }
   }
-
 })
 
 export default store
