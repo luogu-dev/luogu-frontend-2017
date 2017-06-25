@@ -4,18 +4,17 @@
       <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-in"></span>登录 / 注册
     </a>
     <div class="uk-width-medium" uk-dropdown>
-      <form>
+      <form @submit.prevent="login">
         <fieldset class="uk-fieldset">
           <div class="uk-margin-small uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: user"></span>
-            <input class="uk-input uk-width-1-1" placeholder="用户名">
+            <input v-model="username" class="uk-input uk-width-1-1" placeholder="用户名">
           </div>
           <div class="uk-margin-small uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: lock"></span>
-            <input class="uk-input" placeholder="密码" type="password">
+            <input v-model="password" class="uk-input" placeholder="密码" type="password">
           </div>
           <div class="uk-margin-small">
-            <label><input class="uk-checkbox" type="checkbox">记住我</label>
             <a class="uk-float-right" href="#">忘记密码？</a>
           </div>
           <div class="uk-margin-small">
@@ -29,3 +28,25 @@
     </div>
   </li>
 </template>
+<script>
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    async login() {
+      // TODO: use try...catch there
+      const { data } = await axios.post('https://www.luogu.org/api/authenticate/userPassLogin', {
+        username: this.username,
+        password: this.password
+      })
+      if (data.status === 200) { alert('login success') }
+    }
+  }
+}
+</script>
