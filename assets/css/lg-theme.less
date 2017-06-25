@@ -20,6 +20,18 @@
 @search-icon-color: @lg-navbar-color;
 @search-navbar-width: 200px;
 
+@global-xxlarge-font-size: 2.3rem;
+
 .hook-card() {
   border-radius: 10px;
+}
+
+.lg-float-title {
+  padding: 0 @card-body-padding-horizontal;
+  // Align with card.
+  font-size: @lg-float-title-size;
+}
+
+@media (min-width: @breakpoint-large) {
+  .lg-float-title { padding: 0 @card-body-padding-horizontal-l; }
 }
