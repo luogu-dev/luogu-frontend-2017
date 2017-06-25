@@ -65,7 +65,6 @@ export default {
       username: 'laosb'
     } */
   }),
-  mounted() { console.log('navbar mounted') },
   components: { AppDropdown, UserDropdown, LoginDropdown }
 }
 </script>
