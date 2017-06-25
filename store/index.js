@@ -29,7 +29,8 @@ const store = () => new Vuex.Store({
       const axios = require('axios')
       if (clientId) {
         // Send a request to backend to get a clientId.
-        const { data } = await axios.get('www.luogu.org/api/authenticate/getClientId')
+        // const { data } = await axios.get('www.luogu.org/api/authenticate/getClientId')
+        const data = { data: 'a745f02bb75fd14eefe03167e34975ecd245189a' }
         clientId = data.data
       }
       commit('SET_CLIENTID', clientId)
