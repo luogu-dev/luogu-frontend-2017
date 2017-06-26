@@ -15,13 +15,11 @@
             <input ref="password" class="uk-input" placeholder="密码" type="password">
           </div>
           <div class="uk-margin-small">
-            <a class="uk-float-right" href="#">忘记密码？</a>
-          </div>
-          <div class="uk-margin-small">
             <input type="submit" class="uk-button uk-button-primary uk-width-1-1" value="登录">
           </div>
           <div class="uk-small-margin">
-            <a href="#">没有账号？现在注册</a>
+            <a href="#">注册账号</a>
+            <a class="uk-float-right" href="#">忘记密码？</a>
           </div>
         </fieldset>
       </form>
