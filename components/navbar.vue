@@ -33,12 +33,12 @@
       </div>
       <ul class="uk-navbar-nav">
         <app-dropdown :apps="apps" />
-        <li>
+        <li v-if="$store.state._currentUser">
           <a href="#">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: bell"></span>通知
           </a>
         </li>
-        <user-dropdown v-if="currentUser" />
+        <user-dropdown v-if="$store.state._currentUser" :user="$store.state._currentUser" />
         <login-dropdown v-else />
       </ul>
     </div>
@@ -60,10 +60,7 @@ export default {
       { icon: 'table', title: '评测记录' },
       { icon: 'users', title: '团队' },
       { icon: 'image', title: '图床' }
-    ],
-    currentUser: null /* {
-      username: 'laosb'
-    } */
+    ]
   }),
   components: { AppDropdown, UserDropdown, LoginDropdown }
 }

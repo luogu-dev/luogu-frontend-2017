@@ -9,14 +9,16 @@
 
 <script>
 import NavBar from '~components/navbar'
+import axios from 'axios'
 
 export default {
   components: { NavBar },
   beforeMount() {
     //We set this on nuxtServerInit. In this way we get clientId from server.
     console.log(this.$store.state)
+    if (this.$store.state._apiBaseUrl) axios.defaults.baseURL = this.$store.state._apiBaseUrl
     if (this.$store.state._clientId) {
-      console.log('found clientId from server')
+      console.log('found clientId from server:', this.$store.state._clientId)
       const bc = require('browser-cookies')
       bc.set('__client_id', this.$store.state._clientId, { domain: 'luogu.org' })
     }

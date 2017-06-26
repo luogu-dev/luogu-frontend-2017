@@ -29,30 +29,18 @@
   </li>
 </template>
 <script>
-import axios from 'axios'
+import { get, post } from '~plugins/lgapi'
 
 export default {
-  data() {
-    return {
-      username: '',
-      password: ''
-    }
-  },
   methods: {
     async login() {
-      // TODO: use try...catch there
-      try {
-        const { data } = await axios.post('https://www.luogu.org/api/authenticate/userPassLogin', {
-          username: this.$refs.username.value,
-          password: this.$refs.password.value
-        })
-        if (data.status === 200) {
-          alert('login success')
-        } else {
-          console.log('req eror:', data)
-        }
-      } catch (e) {
-        if (e) console.log(e)
+      const data = await post('https://www.luogu.org/api/authenticate/userPassLogin', {
+        username: this.$refs.username.value,
+        password: this.$refs.password.value
+      })
+      if (!data.err) {
+        const currentUser = await get('https://www.luogu.org/api/user/current')
+        this.$store.commit('SET_USER', currentUser)
       }
     }
   }

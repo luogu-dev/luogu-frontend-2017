@@ -11,14 +11,15 @@ const store = () => new Vuex.Store({
   state: {
     _currentUser: null,
     _clientId: null,
-    _apiBaseURL: 'https://api.luogu.org'
+    _apiBaseURL: 'http://api.luogu.org'
   },
 
   mutations: {
     SET_USER: function (state, user) {
       state._currentUser = user
     },
-    SET_CLIENTID (state, clientId) { state._clientId = clientId }
+    SET_CLIENTID (state, clientId) { state._clientId = clientId },
+    SET_APIBASEURL (state, apiBaseURL) { state._apiBaseURL = apiBaseURL }
   },
 
   actions: {
@@ -27,10 +28,13 @@ const store = () => new Vuex.Store({
       const cookies = new Cookies(req, res)
       let clientId = cookies.get('__client_id')
       const axios = require('axios')
+      const { get } = require('~plugins/lgapi')
+      if (process.env.API_GATEWAY_BASEURL) commit('SET_APIBASEURL', process.env.API_GATEWAY_BASEURL)
+      axios.defaults.baseURL = process.env.API_GATEWAY_BASEURL || 'http://api.luogu.org'
       if (!clientId) {
         // Send a request to backend to get a clientId.
         try {
-          const { data } = await axios.get('https://www.luogu.org/api/authenticate/getClientId')
+          const { data } = await axios.get('/api/authenticate/getClientId', { headers: { cookie: '' } })
           clientId = data.data
           commit('SET_CLIENTID', clientId)
           console.log('got new clientId from server ', clientId)
@@ -42,7 +46,9 @@ const store = () => new Vuex.Store({
         console.log('using clientId from client', clientId)
       }
       commit('SET_CLIENTID', clientId)
-      axios.defaults.headers.common['Cookie'] = `__client_id=${clientId || ''}`
+      axios.defaults.headers.common['cookie'] = `__client_id=${clientId || ''}`
+      const currentUser = await get('/api/user/current')
+      if (!currentUser.err) commit('SET_USER', currentUser)
     }
   }
 })

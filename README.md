@@ -4,6 +4,10 @@
 
 I manually turned off Standard linter in `.vscode/settings.json`, because I use ESLint with Standard. A `npm i` would help you install them and configure in VSCode.
 
+## Setup
+
+Add `127.0.0.1  f.luogu.org` to your `hosts` file, and access your local development instance. This is required to share cookies with `luogu.org`.
+
 ## Some HTML & Vue style guide
 
 1. 2-space indent.
