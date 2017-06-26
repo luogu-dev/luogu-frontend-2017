@@ -3,9 +3,6 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// Polyfill for window.fetch()
-require('whatwg-fetch')
-
 const store = () => new Vuex.Store({
 
   state: {

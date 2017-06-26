@@ -34,12 +34,12 @@ import { get, post } from '~plugins/lgapi'
 export default {
   methods: {
     async login() {
-      const data = await post('https://www.luogu.org/api/authenticate/userPassLogin', {
+      const data = await post('/api/authenticate/userPassLogin', {
         username: this.$refs.username.value,
         password: this.$refs.password.value
       })
       if (!data.err) {
-        const currentUser = await get('https://www.luogu.org/api/user/current')
+        const currentUser = await get('/api/user/current')
         this.$store.commit('SET_USER', currentUser)
       }
     }

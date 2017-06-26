@@ -25,7 +25,7 @@
         </li>
         <li class="uk-nav-divider"></li>
         <li>
-          <a href="#">
+          <a href="#" @click.prevent="logout">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-out"></span>
             退出登录
           </a>
@@ -35,7 +35,15 @@
   </li>
 </template>
 <script>
+  import { post } from '~plugins/lgapi'
+
   export default {
-    props: { user: Object }
+    props: { user: Object },
+    methods: {
+      async logout() {
+        const res = await post('/api/authenticate/logout')
+        if (!res.error) this.$store.commit('SET_USER', null)
+      }
+    }
   }
 </script>

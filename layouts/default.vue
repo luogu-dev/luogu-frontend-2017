@@ -16,7 +16,7 @@ export default {
   beforeMount() {
     //We set this on nuxtServerInit. In this way we get clientId from server.
     console.log(this.$store.state)
-    if (this.$store.state._apiBaseUrl) axios.defaults.baseURL = this.$store.state._apiBaseUrl
+    if (this.$store.state._apiBaseURL) axios.defaults.baseURL = this.$store.state._apiBaseURL
     if (this.$store.state._clientId) {
       console.log('found clientId from server:', this.$store.state._clientId)
       const bc = require('browser-cookies')
