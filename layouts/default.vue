@@ -13,13 +13,12 @@ import NavBar from '~components/navbar'
 export default {
   components: { NavBar },
   beforeMount() {
-    console.log('layout beforeMount')
     //We set this on nuxtServerInit. In this way we get clientId from server.
     console.log(this.$store.state)
     if (this.$store.state._clientId) {
       console.log('found clientId from server')
       const bc = require('browser-cookies')
-      bc.set('__client_id', this.$store.state._clientId/*, { domain: 'luogu.org' } */)
+      bc.set('__client_id', this.$store.state._clientId, { domain: 'luogu.org' })
     }
   }
 }

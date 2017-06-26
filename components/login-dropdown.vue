@@ -8,11 +8,11 @@
         <fieldset class="uk-fieldset">
           <div class="uk-margin-small uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: user"></span>
-            <input v-model="username" class="uk-input uk-width-1-1" placeholder="用户名">
+            <input ref="username" class="uk-input uk-width-1-1" placeholder="用户名">
           </div>
           <div class="uk-margin-small uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: lock"></span>
-            <input v-model="password" class="uk-input" placeholder="密码" type="password">
+            <input ref="password" class="uk-input" placeholder="密码" type="password">
           </div>
           <div class="uk-margin-small">
             <a class="uk-float-right" href="#">忘记密码？</a>
@@ -41,11 +41,19 @@ export default {
   methods: {
     async login() {
       // TODO: use try...catch there
-      const { data } = await axios.post('https://www.luogu.org/api/authenticate/userPassLogin', {
-        username: this.username,
-        password: this.password
-      })
-      if (data.status === 200) { alert('login success') }
+      try {
+        const { data } = await axios.post('https://www.luogu.org/api/authenticate/userPassLogin', {
+          username: this.$refs.username.value,
+          password: this.$refs.password.value
+        })
+        if (data.status === 200) {
+          alert('login success')
+        } else {
+          console.log('req eror:', data)
+        }
+      } catch (e) {
+        if (e) console.log(e)
+      }
     }
   }
 }
