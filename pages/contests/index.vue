@@ -3,9 +3,11 @@
     <h1 class="lg-float-title">比赛</h1>
     <div class="uk-card uk-card-default uk-card-body uk-margin">
       <div v-show="loading" uk-spinner></div>
-      <div v-if="(new Date()) > (new Date(contests.result[0].EndTime * 1000)) " class="uk-placeholder uk-text-center">
+      <!--
+      <div v-if="(new Date()) > (new Date(contests.result[0].EndTime * 1000)) && current === 1" class="uk-placeholder uk-text-center">
         暂时没有正在进行或即将到来的比赛😳
       </div>
+      -->
       <ul v-show="!loading" class="uk-list uk-list-divider">
         <contest-item v-for="contest in contests.result" :key="contest.TID" :contest="contest"/>
       </ul>
