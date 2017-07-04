@@ -28,7 +28,7 @@
       <div class="uk-navbar-item">
         <form class="uk-search uk-search-navbar">
           <a class="uk-search-icon-flip" uk-search-icon></a>
-          <input class="uk-search-input" type="search" placeholder="题目搜索">
+          <input class="uk-search-input" type="search" placeholder="搜索">
         </form>
       </div>
       <ul class="uk-navbar-nav">
