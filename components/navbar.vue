@@ -2,7 +2,7 @@
   <nav class="uk-navbar-container uk-margin uk-navbar" uk-navbar>
     <div class="uk-navbar-left">
 
-      <a class="uk-navbar-item uk-logo" href="#">Luogu</a>
+      <router-link class="uk-navbar-item uk-logo" to="/">Luogu</router-link>
 
       <ul class="uk-navbar-nav">
         <li>

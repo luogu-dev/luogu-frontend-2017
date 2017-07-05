@@ -8,7 +8,7 @@
       <ul class="uk-nav uk-navbar-dropdown-nav">
         <li class="uk-nav-header">个人</li>
         <li>
-          <a href="#">个人页</a>
+          <router-link :to="{ name: 'users-id', params: { id: user.UID } }">个人页</router-link>
         </li>
         <li>
           <a href="#">私信</a>
