@@ -150,14 +150,3 @@ export default {
   }
 }
 </script>
-<style lang="less">
-.lg-largenum {
-  font-size: 2em;
-}
-.lg-margin-reset {
-  margin: 0;
-}
-.lg-padding-reset {
-  padding: 0;
-}
-</style>
