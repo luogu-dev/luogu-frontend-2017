@@ -39,6 +39,6 @@ module.exports = {
         })
       }
     },
-    vendor: ['axios']
+    vendor: ['axios', 'lodash', 'vuemarkdown']
   }
 }

@@ -7,7 +7,7 @@
       <div class="uk-width-2-3">
         <div v-if="Introduction" class="uk-card uk-card-default uk-card-body uk-margin">
           <h3 class="uk-card-title">团队宣言</h3>
-          <div v-html="Introduction"></div>
+          <vue-markdown :source="Introduction"></vue-markdown>
         </div>
         <div class="uk-card uk-card-default uk-card-body uk-margin">
           <h3 class="uk-card-title">成员</h3>
@@ -54,6 +54,7 @@
   </div>
 </template>
 <script>
+import VueMarkdown from 'vue-markdown'
 import { groupBy } from 'lodash'
 import { get } from '~plugins/lgapi'
 import UserInfo from '~components/user-info'
@@ -62,7 +63,7 @@ export default {
   async asyncData({ params }){
     return await get(`/api/team/detail/${params.id}`)
   },
-  components: { UserInfo },
+  components: { UserInfo, VueMarkdown },
   computed: {
     groupedMembers() {
       return groupBy(this.Members.result, 'Type')
