@@ -20,6 +20,7 @@
   "scripts": {
     "dev": "HOST=0.0.0.0 PORT=3333 nuxt",
     "build": "nuxt build",
+    "ba": "nuxt build -a && NODE_ENV=production nuxt start",
     "start": "cross-env NODE_ENV=production nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",

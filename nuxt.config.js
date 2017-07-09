@@ -26,6 +26,7 @@ module.exports = {
     { src: '~plugins/uikit', ssr: false }
   ],
   build: {
+    analysis: { analyzerPort: 1989 },
     /*
     ** Run ESLINT on save
     */
@@ -39,6 +40,6 @@ module.exports = {
         })
       }
     },
-    vendor: ['axios', 'lodash', 'vuemarkdown']
+    vendor: ['axios', 'lodash', 'vue-markdown']
   }
 }
