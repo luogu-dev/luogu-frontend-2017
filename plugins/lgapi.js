@@ -24,11 +24,11 @@ const request = async (method, url, data) => {
 }
 
 const post = async (url, data) => {
-  return await request('post', url, data)
+  return request('post', url, data)
 }
 
 const get = async (url, data) => {
-  return await request('get', url, data)
+  return request('get', url, data)
 }
 
 export { post, get, request }
