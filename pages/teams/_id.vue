@@ -68,7 +68,8 @@ import UserInfo from '~components/user-info'
 
 export default {
   async asyncData({ params, error }){
-    return await get(`/api/team/detail/${params.id}`)
+    // We need to ensure that we have those fields to avoid "not defined in data" errors.
+    return Object.assign({ Introduction: '', Notice: '', Members: null }, await get(`/api/team/detail/${params.id}`))
   },
   components: { UserInfo, VueMarkdown },
   computed: {
