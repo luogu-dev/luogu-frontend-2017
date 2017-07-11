@@ -16,9 +16,7 @@
   </ul>
 </template>
 <script>
-const setPage = hash => hash && hash.startsWith('#page-') ?
-  parseInt(hash.split('-')[1], 10) :
-  1 // Defaults to 1.
+import { setPage } from '~assets/js/page-helpers'
 
 export default {
   data(){ return { currentPage: setPage(this.$route.hash) } },

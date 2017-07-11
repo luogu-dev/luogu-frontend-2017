@@ -13,12 +13,21 @@
 import PageSwitcher from '~components/page-switcher'
 import ContestItem from '~components/contest-item'
 
+import { setPage } from '~assets/js/page-helpers'
+
 import { get } from '~plugins/lgapi'
 
 export default {
-  async asyncData(){
-    return { contests: await get(`/api/contest/lists`) }
+  data(){ return { current: setPage(this.$route.hash) } },
+  async asyncData({ route }){
+    return { contests: await get(`/api/contest/lists?page=${setPage(route.hash)}`) }
   },
-  components: { PageSwitcher, ContestItem }
+  components: { PageSwitcher, ContestItem },
+  watch: {
+    async $route({hash}){
+      this.current = setPage(hash)
+      this.contests = await get(`/api/contest/lists?page=${this.current}`)
+    }
+  }
 }
 </script>
