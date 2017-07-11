@@ -9,6 +9,10 @@
           <h3 class="uk-card-title">团队宣言</h3>
           <vue-markdown :source="Introduction"></vue-markdown>
         </div>
+        <div v-if="Notice" class="uk-card uk-card-default uk-card-body uk-margin">
+          <h3 class="uk-card-title">通知</h3>
+          <vue-markdown :source="Notice"></vue-markdown>
+        </div>
         <div class="uk-card uk-card-default uk-card-body uk-margin">
           <h3 class="uk-card-title">成员</h3>
           <section v-for="(group, name) in groupedMembers" :key="group">
