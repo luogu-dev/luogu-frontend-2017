@@ -17,5 +17,5 @@ export const contestPublic = [
   { name: '个人邀请赛', color: 'red' }, // 5
   { name: '团队邀请赛', color: 'red' }, // 6
   { name: '团队公开赛 (待审核)', color: 'red' }, // 7
-  { name: '个人公开赛 (待审核)', color: 'red' }, // 8
+  { name: '个人公开赛 (待审核)', color: 'red' } // 8
 ]
