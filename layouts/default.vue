@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import NavBar from '~components/navbar'
+import NavBar from '~components/nav-bar'
 import axios from 'axios'
 
 export default {

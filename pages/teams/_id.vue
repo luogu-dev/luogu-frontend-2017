@@ -13,19 +13,22 @@
           <h3 class="uk-card-title">通知</h3>
           <vue-markdown :source="Notice"></vue-markdown>
         </div>
-        <div class="uk-card uk-card-default uk-card-body uk-margin">
+        <div  class="uk-card uk-card-default uk-card-body uk-margin">
           <h3 class="uk-card-title">成员</h3>
-          <section v-for="(group, name) in groupedMembers" :key="group">
-            <h4>{{name}}</h4>
-            <ul class="uk-list uk-list-bullet">
-              <li v-for="m in group" :key="m.UID">{{m.RealName}}</li>
-            </ul>
-          </section>
+          <div v-if="Members">
+            <section v-for="(group, name) in groupedMembers" :key="group">
+              <h4>{{name}}</h4>
+              <ul class="uk-list uk-list-bullet">
+                <li v-for="m in group" :key="m.UID">{{m.RealName}}</li>
+              </ul>
+            </section>
+          </div>
+          <div v-else class="uk-placeholder uk-text-center">成为该团队的成员才能查看团队成员信息哦😏</div>
         </div>
       </div>
       <div class="uk-width-1-3">
         <div class="uk-card uk-card-default uk-card-body">
-          <div uk-grid>
+          <div uk-grid v-if="Members">
             <div class="uk-width-1-2">
               <dl class="uk-description-list">
                 <dt>成员数量</dt>
@@ -64,13 +67,13 @@ import { get } from '~plugins/lgapi'
 import UserInfo from '~components/user-info'
 
 export default {
-  async asyncData({ params }){
+  async asyncData({ params, error }){
     return await get(`/api/team/detail/${params.id}`)
   },
   components: { UserInfo, VueMarkdown },
   computed: {
     groupedMembers() {
-      return groupBy(this.Members.result, 'Type')
+      return this.Members ? groupBy(this.Members.result, 'Type') : []
     }
   }
 }
