@@ -67,7 +67,7 @@ import { get } from '~plugins/lgapi'
 import UserInfo from '~components/user-info'
 
 export default {
-  async asyncData({ params, error }){
+  async asyncData({ params, error }) {
     // We need to ensure that we have those fields to avoid "not defined in data" errors.
     return Object.assign({ Introduction: '', Notice: '', Members: null }, await get(`/api/team/detail/${params.id}`))
   },
