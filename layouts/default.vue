@@ -3,16 +3,17 @@
     <nav-bar></nav-bar>
     <div class="uk-container"><nuxt/></div>
     <a href="#" class="uk-position-fixed lg-totop" uk-totop uk-scroll></a>
-    <footer></footer>
+    <lg-footer></lg-footer>
   </div>
 </template>
 
 <script>
 import NavBar from '~components/nav-bar'
+import LgFooter from '~components/lg-footer'
 import axios from 'axios'
 
 export default {
-  components: { NavBar },
+  components: { NavBar, LgFooter },
   beforeMount() {
     //We set this on nuxtServerInit. In this way we get clientId from server.
     console.log(this.$store.state)
