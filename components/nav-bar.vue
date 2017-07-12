@@ -10,8 +10,8 @@
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: table"></span>题目</a>
         </li>
         <li>
-          <a href="#">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: social"></span>比赛</a>
+          <router-link :to="{ name: 'contests' }">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: social"></span>比赛</router-link>
         </li>
         <li>
           <a href="#">
