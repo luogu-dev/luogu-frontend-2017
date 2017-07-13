@@ -18,8 +18,8 @@
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: comments"></span>讨论</a>
         </li>
         <li>
-          <a href="#">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: bookmark"></span>博客</a>
+          <router-link :to="{ name: 'blogs' }">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: bookmark"></span>博客</router-link>
         </li>
       </ul>
 
