@@ -11,8 +11,8 @@
   </div>
 </template>
 <script>
-import PageSwitcher from '~components/page-switcher'
-import ContestItem from '~components/contest-item'
+import PageSwitcher from '~components/common/page-switcher'
+import ContestItem from '~components/contests/contest-item'
 
 import { setPage } from '~assets/js/page-helpers'
 

@@ -23,7 +23,7 @@
 </template>
 <script>
 import VueMarkdown from 'vue-markdown'
-import UserInfo from '~components/user-info'
+import UserInfo from '~components/common/user-info'
 
 import { get } from '~plugins/lgapi'
 

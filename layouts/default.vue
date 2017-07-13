@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import NavBar from '~components/nav-bar'
-import LgFooter from '~components/lg-footer'
+import NavBar from '~components/layout/nav-bar'
+import LgFooter from '~components/layout/lg-footer'
 import axios from 'axios'
 
 export default {

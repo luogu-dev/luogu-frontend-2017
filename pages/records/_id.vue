@@ -75,9 +75,9 @@
   </div>
 </template>
 <script>
-import StatusLabel from '~components/status-label'
-import StatusPoint from '~components/status-point'
-import UserInfo from '~components/user-info'
+import StatusLabel from '~components/records/status-label'
+import StatusPoint from '~components/records/status-point'
+import UserInfo from '~components/common/user-info'
 
 export default {
   data(context) {

@@ -64,7 +64,7 @@
 import VueMarkdown from 'vue-markdown'
 import { groupBy } from 'lodash'
 import { get } from '~plugins/lgapi'
-import UserInfo from '~components/user-info'
+import UserInfo from '~components/common/user-info'
 
 export default {
   async asyncData({ params, error }) {

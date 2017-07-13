@@ -11,8 +11,8 @@
   </div>
 </template>
 <script>
-import PageSwitcher from '~components/page-switcher'
-import BlogItem from '~components/blog-item'
+import PageSwitcher from '~components/common/page-switcher'
+import BlogItem from '~components/blogs/blog-item'
 
 import { setPage } from '~assets/js/page-helpers'
 
