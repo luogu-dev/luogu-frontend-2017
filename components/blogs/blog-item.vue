@@ -8,9 +8,6 @@
     </router-link>
   </li>
 </template>
-<style lang="less" scoped>
-.lg-no-margin-bottom { margin-bottom: 0 }
-</style>
 <script>
 export default {
   props: {

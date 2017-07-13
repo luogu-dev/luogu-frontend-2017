@@ -9,9 +9,6 @@
     </a>
   </li>
 </template>
-<style lang="less" scoped>
-.lg-no-margin-bottom { margin-bottom: 0 }
-</style>
 <script>
 import { contestMethods, contestPublic } from '~assets/js/contest-consts'
 
