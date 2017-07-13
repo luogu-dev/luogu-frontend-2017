@@ -12,6 +12,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "jquery": "^3.2.1",
+    "moment": "^2.18.1",
     "nuxt": "latest",
     "uikit": "^3.0.0-beta.25",
     "vue-markdown": "^2.1.3",
