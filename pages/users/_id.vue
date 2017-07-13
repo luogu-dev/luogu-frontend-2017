@@ -33,7 +33,7 @@
           </div> -->
           <dl class="uk-description-list">
             <dt>注册时间</dt>
-            <dd>{{(new Date(RegisterTime * 1000)).toLocaleString()}}</dd>
+            <dd>{{RegisterTime | readableDate}}</dd>
           </dl>
         </div>
       </div>

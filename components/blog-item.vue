@@ -3,7 +3,7 @@
     <router-link :to="{ name: 'blogs-id', params: { id: blog.BlogID } }">
       {{blog.Title}}
       <span class="uk-align-right lg-no-margin-bottom uk-text-meta">
-        by {{blog.Author.Username}} @ {{(new Date(blog.PostTime * 1000)).toLocaleString()}}
+        by {{blog.Author.Username}} @ {{blog.PostTime | readableDate}}
       </span>
     </router-link>
   </li>

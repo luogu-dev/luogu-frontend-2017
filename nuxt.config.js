@@ -23,6 +23,7 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   plugins: [
+    '~plugins/global-filters',
     { src: '~plugins/uikit', ssr: false }
   ],
   build: {
@@ -40,6 +41,6 @@ module.exports = {
         })
       }
     },
-    vendor: ['axios', 'lodash', 'vue-markdown']
+    vendor: ['axios', 'lodash', 'vue-markdown', '~plugins/lgapi']
   }
 }

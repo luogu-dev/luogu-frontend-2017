@@ -14,7 +14,7 @@
           </article>
           <dl class="uk-description-list">
             <dt>发布时间</dt>
-            <dd>{{(new Date(PostTime * 1000)).toLocaleString()}}</dd>
+            <dd>{{PostTime | readableDate}}</dd>
           </dl>
         </div>
       </div>
