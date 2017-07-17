@@ -14,16 +14,19 @@
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: table"></span>题目</a>
         </li>
         <li>
-          <a href="#">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: social"></span>比赛</a>
+          <router-link :to="{ name: 'contests' }">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: social"></span>比赛
+          </router-link>
         </li>
         <li>
-          <a href="#">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: comments"></span>讨论</a>
+          <router-link :to="{ name: 'contests' }">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: comments"></span>讨论
+          </router-link>
         </li>
         <li>
-          <a href="#">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: bookmark"></span>博客</a>
+          <router-link :to="{ name: 'blogs' }">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: bookmark"></span>博客
+          </router-link>
         </li>
         <li class="uk-parent">
           <span>应用</span>
