@@ -1,21 +1,18 @@
 <template>
   <div>
-    <h1 class="lg-float-title">比赛</h1>
+    <h1 class="lg-float-title">讨论</h1>
     <div class="uk-card uk-card-default uk-card-body uk-margin">
       <div v-show="loading" uk-spinner></div>
-      <div v-if="(new Date()) > (new Date(contests.result[0].EndTime * 1000)) " class="uk-placeholder uk-text-center">
-        暂时没有正在进行或即将到来的比赛😳
-      </div>
       <ul v-show="!loading" class="uk-list uk-list-divider">
-        <contest-item v-for="contest in contests.result" :key="contest.TID" :contest="contest"/>
+        <discuss-item v-for="post in posts.result" :key="post.PostID" :post="post"/>
       </ul>
-      <page-switcher :itemCount="contests.count"/>
+      <page-switcher :itemCount="posts.count"/>
     </div>
   </div>
 </template>
 <script>
 import PageSwitcher from '~components/common/page-switcher'
-import ContestItem from '~components/contests/contest-item'
+import DiscussItem from '~components/discuss/discuss-item'
 
 import { setPage } from '~assets/js/page-helpers'
 
@@ -24,14 +21,14 @@ import { get } from '~plugins/lgapi'
 export default {
   data(){ return { current: setPage(this.$route.hash), loading: false } },
   async asyncData({ route }){
-    return { contests: await get(`/api/contest/lists?page=${setPage(route.hash)}`) }
+    return { posts: await get(`/api/discuss/lists?page=${setPage(route.hash)}`) }
   },
-  components: { PageSwitcher, ContestItem },
+  components: { PageSwitcher, DiscussItem },
   watch: {
     async $route({hash}){
       this.current = setPage(hash)
       this.loading = true
-      this.contests = await get(`/api/contest/lists?page=${this.current}`)
+      this.blogs = await get(`/api/discuss/lists?page=${this.current}`)
       this.loading = false
     }
   }
