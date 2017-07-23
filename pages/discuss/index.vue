@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <h1 class="lg-float-title">讨论</h1>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-      <div v-show="loading" uk-spinner></div>
-      <ul v-show="!loading" class="uk-list uk-list-divider">
-        <discuss-item v-for="post in posts.result" :key="post.PostID" :post="post"/>
-      </ul>
-      <page-switcher :itemCount="posts.count"/>
-    </div>
-  </div>
+  <paged-list title="讨论" :items="posts" :loading="loading">
+    <template slot="item" scope="props">
+      <discuss-item :post="props.item"/>
+    </template>
+  </paged-list>
 </template>
 <script>
-import PageSwitcher from '~components/common/page-switcher'
+import PagedList from '~components/common/paged-list'
 import DiscussItem from '~components/discuss/discuss-item'
 
 import { setPage } from '~assets/js/page-helpers'
@@ -23,7 +18,7 @@ export default {
   async asyncData({ route }){
     return { posts: await get(`/api/discuss/lists?page=${setPage(route.hash)}`) }
   },
-  components: { PageSwitcher, DiscussItem },
+  components: { PagedList, DiscussItem },
   watch: {
     async $route({hash}){
       this.current = setPage(hash)
