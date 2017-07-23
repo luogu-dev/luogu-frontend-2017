@@ -19,7 +19,7 @@
           </router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'contests' }">
+          <router-link :to="{ name: 'discuss' }">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: comments"></span>讨论
           </router-link>
         </li>
