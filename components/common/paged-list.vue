@@ -14,6 +14,8 @@
 
 // Don't ask me why I did this; "I don't know."
 
+// Now I would abandon this. That's a faulty extraction.
+
 import PageSwitcher from '~components/common/page-switcher'
 
 export default {
@@ -25,7 +27,6 @@ export default {
   props: {
     title: String,
     items: Object,
-    key: String,
     laoding: Boolean
   },
   components: { PageSwitcher }

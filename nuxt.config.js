@@ -15,7 +15,8 @@ module.exports = {
       // { src: '//unpkg.cnpmjs.org/uikit/dist/js/uikit-icons.min.js', defer: true }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '//luogu.oss-cn-hangzhou.aliyuncs.com/images/favicon3.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '//luogu.oss-cn-hangzhou.aliyuncs.com/images/favicon3.ico' },
+      { rel: 'stylesheet', href: '//unpkg.cnpmjs.org/katex/dist/katex.min.css' }
     ]
   },
   /*
