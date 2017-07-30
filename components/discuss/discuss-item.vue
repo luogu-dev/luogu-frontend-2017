@@ -3,7 +3,7 @@
     <router-link :to="{ name: 'discuss-id', params: { id: post.PostID } }">
       <span>{{post.Title}}</span>
     </router-link>
-    <span class="uk-align-right lg-no-margin-bottom uk-text-meta"><user-link :user="post.Author"/> @ <!--{{post.PostTime | readableDate}}--></span>
+    <span class="uk-align-right lg-no-margin-bottom uk-text-meta"><user-link :user="post.Author"/> @ {{post.SubmitTime | readableDate}}</span>
   </li>
 </template>
 <script>
